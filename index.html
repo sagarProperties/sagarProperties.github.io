@@ -143,18 +143,25 @@ iframe {
     gap: 10px;
     margin: 20px 0;
     scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
 }
 
 .slider img,
 .slider video {
     flex: 0 0 auto;
-    width: 80vw;              /* 80% of the viewport width */
-    max-width: 300px;         /* Optional: set a maximum width */
+    width: 90vw;              /* Mobile: 90% of viewport width */
+    max-width: 300px;         /* Desktop: Max width limit */
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
     scroll-snap-align: center;
 }
+
+/* Optional: Hide scroll bar on Webkit browsers (like Chrome/Safari) */
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
 
 </style>
 
