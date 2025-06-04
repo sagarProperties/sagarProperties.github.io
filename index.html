@@ -142,11 +142,19 @@ iframe {
     overflow-x: auto;
     gap: 10px;
     margin: 20px 0;
+    scroll-snap-type: x mandatory;
 }
-.slider img {
-    width: 300px;
-    height: auto;
+
+.slider img,
+.slider video {
+    flex: 0 0 auto;
+    width: 80vw;              /* 80% of the viewport width */
+    max-width: 300px;         /* Optional: set a maximum width */
+    height: 200px;
+    object-fit: cover;
     border-radius: 10px;
+    scroll-snap-align: center;
 }
+
 </style>
 
