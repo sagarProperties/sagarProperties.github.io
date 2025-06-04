@@ -52,6 +52,27 @@
         
     </div>
 
+    <div class="slider">
+  <!-- Image -->
+  <img src="house1.jpg" alt="घर फोटो 1">
+         <img src="img1.jpg" alt="घर फोटो 1">
+         <img src="img2.jpg" alt="घर फोटो 1">
+         <img src="img3.jpg" alt="घर फोटो 1">
+         <img src="img4.jpg" alt="घर फोटो 1">
+
+  <!-- Video -->
+  <video controls width="300">
+    <source src="video1.mp4" type="video/mp4">
+       <source src="video2.mp4" type="video/mp4">
+       <source src="video3.mp4" type="video/mp4">
+    आपका ब्राउज़र वीडियो को सपोर्ट नहीं करता.
+  </video>
+
+  <!-- More Images -->
+  <img src="house2.jpg" alt="घर फोटो 2">
+</div>
+    
+
     <div class="property">
         <h2>📣 रोड साइड प्लॉट बिक्री के लिए</h2>
         <p><strong>स्थान:</strong> सैनिक स्कूल के सामने, गुड़ा रोड, सागर (मध्य प्रदेश)</p>
@@ -62,6 +83,15 @@
         <a class="map-link" href="https://maps.app.goo.gl/79iWPVbFnbtyKUV27" target="_blank">📌 Google Map पर देखें</a>
         
     </div>
+
+    <div class="map-container">
+    <iframe
+        src="https://maps.app.goo.gl/79iWPVbFnbtyKUV27"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
     <div class="social-buttons">
     <a class="call-btn" href="tel:+917509769044">📞 कॉल करें</a>
     <a class="whatsapp-btn" href="https://wa.me/917509769044" target="_blank">💬 WhatsApp</a>
@@ -93,5 +123,33 @@
     .whatsapp-btn { background-color: #25D366; }     /* WhatsApp Green */
     .facebook-btn { background-color: #3b5998; }     /* Facebook Blue */
     .instagram-btn { background-color: #C13584; }    /* Instagram Pink */
+</style>
+
+<style>
+.map-container {
+    width: 100%;
+    height: 450px;
+    margin-top: 20px;
+}
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+</style>
+
+<style>
+.slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin: 20px 0;
+}
+.slider img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
 </style>
 
