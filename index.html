@@ -63,12 +63,95 @@
 .mobile-btn.facebook { background-color: #3b5998; }
 .mobile-btn.instagram { background-color: #e1306c; }
 
+.property-container {
+  border: 2px solid #666;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.property-container h1 {
+  font-size: 1.8em;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.property-details {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.property-details h2 {
+  color: #2980b9;
+  margin-bottom: 10px;
+}
+
+.property-details p {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.property-details a {
+  color: #27ae60;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.property-details a:hover {
+  text-decoration: underline;
+}
+
+.note {
+  color: green;
+  font-weight: bold;
+}
+
+.media-slider {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+.media-slider img,
+.media-slider video {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .property-container {
+    padding: 15px;
+  }
+
+  .media-slider {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .media-slider img,
+  .media-slider video {
+    max-width: 90%;
+  }
+}
+
+
     </style>
 </head>
 <body>
     <h1>📢 प्रॉपर्टी बिक्री की जानकारी</h1>
-    <div style="border: 2px solid #666; padding: 20px; margin-bottom: 30px; font-family: Arial, sans-serif;">
-        <h1>📌 प्रॉपर्टी  संख्या 1</h1>
+    <div class="property-container">
+       <h1>📌 प्रॉपर्टी  संख्या 1</h1>
       
         <!-- Property Details -->
         <div style="border: 1px solid #ccc; padding: 15px; margin-bottom: 20px;">
@@ -99,11 +182,12 @@
         </div>
       </div>
       
+      
 
  
     
 
-      <div style="border: 2px solid #444; border-radius: 12px; padding: 25px; margin-bottom: 40px; font-family: 'Segoe UI', sans-serif; background: #f9f9f9; box-shadow: 0 0 12px rgba(0,0,0,0.1);">
+      <div class="property-container">
         <h1 style="color: #2c3e50; margin-bottom: 20px;">📌 प्रॉपर्टी संख्या 2</h1>
       
         <!-- Plot Details -->
