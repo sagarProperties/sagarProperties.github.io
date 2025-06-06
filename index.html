@@ -166,21 +166,22 @@
         </div>
       
         <!-- Media Slider Section -->
-        <div class="slider">
-          <!-- Images -->
-          <img src="img1.jpg" alt="घर फोटो 1" style="width: 300px; margin-right: 10px;">
-          <img src="img4.jpg" alt="घर फोटो 4" style="width: 300px; margin-right: 10px;">
-      
-          <!-- Videos -->
-          <video controls width="300" style="margin-right: 10px;">
-            <source src="video2.mp4" type="video/mp4">
-          </video>
-      
-          <video controls width="300">
-            <source src="video3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+        <div class="slider-container">
+            <div class="slider" id="slider">
+              <img src="img1.jpg" alt="घर फोटो 1">
+              <img src="img4.jpg" alt="घर फोटो 4">
+              <video controls>
+                <source src="video2.mp4" type="video/mp4">
+              </video>
+              <video controls>
+                <source src="video3.mp4" type="video/mp4">
+              </video>
+            </div>
+          
+            <!-- Dots -->
+            <div class="dots" id="sliderDots"></div>
+          </div>
+          
       
       
 
@@ -281,31 +282,106 @@
 </style>
 
 <style>
+.slider-container {
+  position: relative;
+  margin-top: 20px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .slider {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    margin: 20px 0;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
 }
 
 .slider img,
 .slider video {
-    flex: 0 0 auto;
-    width: 90vw;              /* Mobile: 90% of viewport width */
-    max-width: 300px;         /* Desktop: Max width limit */
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    scroll-snap-align: center;
+  flex: 0 0 auto;
+  width: 90vw;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  scroll-snap-align: center;
 }
 
-/* Optional: Hide scroll bar on Webkit browsers (like Chrome/Safari) */
+/* Hide scrollbar (optional) */
 .slider::-webkit-scrollbar {
-    display: none;
+  display: none;
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.dots .dot {
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dots .dot.active {
+  background: #333;
+}
+
+/* Responsive height adjustment */
+@media (min-width: 768px) {
+  .slider img,
+  .slider video {
+    height: 240px;
+  }
 }
 
 
 </style>
+
+<script>
+    const slider = document.getElementById('slider');
+    const dotsContainer = document.getElementById('sliderDots');
+  
+    const items = slider.querySelectorAll('img, video');
+    const dots = [];
+  
+    items.forEach((item, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        slider.scrollTo({
+          left: item.offsetLeft - slider.offsetLeft,
+          behavior: 'smooth'
+        });
+      });
+      dotsContainer.appendChild(dot);
+      dots.push(dot);
+    });
+  
+    // Update dot on scroll
+    slider.addEventListener('scroll', () => {
+      const scrollLeft = slider.scrollLeft;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      items.forEach((item, index) => {
+        const distance = Math.abs(item.offsetLeft - scrollLeft - slider.offsetLeft);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[closestIndex].classList.add('active');
+    });
+  </script>
 
