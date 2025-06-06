@@ -41,27 +41,42 @@
         .mobile-social-bar {
   position: fixed;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
+  max-width: 420px;       /* Limit width on desktop */
   background: #fff;
   display: flex;
-  justify-content: space-around;
-  padding: 10px 0;
+  justify-content: space-between; /* More consistent spacing */
+  padding: 12px 20px;
   box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .mobile-btn {
-  font-size: 24px;
+  font-size: 26px;
   text-decoration: none;
-  padding: 10px;
+  padding: 14px;
   border-radius: 50%;
   color: white;
+  flex-shrink: 0;
 }
 
 .mobile-btn.call { background-color: #27ae60; }
 .mobile-btn.whatsapp { background-color: #25D366; }
 .mobile-btn.facebook { background-color: #3b5998; }
 .mobile-btn.instagram { background-color: #e1306c; }
+
+/* Optional: slightly increase button size on desktop */
+@media(min-width: 768px) {
+  .mobile-btn {
+    font-size: 30px;
+    padding: 16px;
+  }
+}
+
+
 
 .property-container {
   border: 2px solid #666;
