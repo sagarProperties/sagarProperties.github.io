@@ -74,27 +74,32 @@
     .btn-registry { background: #27ae60; }
     .btn-diversion { background: #f39c12; }
 
-    .slider-container {
-      margin-top: 20px;
-      overflow: hidden;
-    }
+.slider-container {
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 0 16px; /* optional: adds horizontal padding to prevent clipping */
+}
 
-    .slider {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-    }
+.slider {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding: 0 16px; /* ensures first and last items can fully snap */
+}
 
-    .slider img, .slider video {
-      width: 90vw;
-      max-width: 300px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      scroll-snap-align: center;
-    }
+.slider img,
+.slider video {
+  flex: 0 0 auto;
+  width: 90vw;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  scroll-snap-align: center;
+}
+
 
     .slider::-webkit-scrollbar {
       display: none;
@@ -176,7 +181,7 @@
     <ul>
       <li>स्थान: शंकरगढ़, रजाखेड़ी, सागर (म.प्र.)</li>
       <li>आकार: 20x30 फ़ीट (600 स्क्वेयर फ़ीट)</li>
-      <li>कीमत: ₹12,00,000</li>
+      <li>कीमत: ₹13,00,000</li>
       <li>4 व्हीलर पार्किंग नहीं</li>
     </ul>
 
